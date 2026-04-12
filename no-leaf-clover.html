@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TUCA | No Leaf Clover</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="no-leaf-clover.css">
+  <script src="no-leaf-clover.js" defer></script>
+</head>
+<body>
+  <div class="access-overlay is-active" id="accessOverlay">
+    <div class="access-card">
+      <h1 class="access-title">Área protegida</h1>
+      <p class="access-text">Digite a senha para acessar esta página.</p>
+
+      <form id="accessForm" class="access-form">
+        <input
+          id="passwordInput"
+          class="access-input"
+          type="password"
+          placeholder="Senha"
+          autocomplete="off"
+        >
+        <button class="access-button" type="submit">Entrar</button>
+      </form>
+
+      <p id="accessError" class="access-error" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <main class="nlc-page">
+    <section class="nlc-stage">
+      <header class="nlc-header">
+        <a class="brand-link" href="index.html" aria-label="Voltar para a home">
+          <div class="brand-row">
+            <h1 class="brand-title">TUCA</h1>
+
+            <img
+              class="brand-illustration"
+              src="assets/images/tuca_img2.png"
+              alt="Ilustração do artista"
+            >
+          </div>
+
+          <span class="brand-line" aria-hidden="true"></span>
+        </a>
+
+        <h2 class="page-title">*NO LEAF CLOVER*</h2>
+      </header>
+
+      <section class="gallery-section">
+        <button class="gallery-arrow gallery-arrow-left" type="button" aria-hidden="true">
+          ←
+        </button>
+
+        <div class="gallery-grid">
+          <div class="main-frame">
+            <img
+              id="mainImage"
+              class="gallery-image"
+              src="assets/images/nlc_pagina_1 1.png"
+              alt="Imagem principal do projeto No Leaf Clover"
+            >
+          </div>
+
+          <div class="side-frame">
+            <img
+              id="sideImage"
+              class="gallery-image"
+              src="assets/images/carrosel_no_leaf_clover1.png"
+              alt="Imagem secundária do projeto No Leaf Clover"
+            >
+          </div>
+        </div>
+
+        <button class="gallery-arrow gallery-arrow-right" type="button" aria-hidden="true">
+          →
+        </button>
+      </section>
+
+      <section class="description-section">
+        <p class="project-description">
+          *No Leaf Clover is an ongoing solo-project. It is a short story which will be fully 2D animated using a mixture of traditional animation and bone animation.
+        </p>
+      </section>
+
+      <footer class="nlc-footer">
+        <p>*desantanatuca@gmail.com</p>
+        <p>*@TUCA STUDIO</p>
+      </footer>
+
+      <img
+        class="corner-star corner-star-left"
+        src="assets/images/star-purple.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <img
+        class="corner-star corner-star-right"
+        src="assets/images/star-purple.png"
+        alt=""
+        aria-hidden="true"
+      >
+    </section>
+  </main>
+</body>
+</html>

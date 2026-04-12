@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TUCA | Background Design</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="backgroud-design.css">
+  <script src="background-design.js" defer></script>
+</head>
+<body>
+  <main class="bgd-page">
+    <section class="bgd-stage">
+      <div class="bgd-layout">
+        <aside class="bgd-sidebar">
+          <a class="brand-link" href="index.html" aria-label="Voltar para a home">
+            <div class="brand-row">
+              <h1 class="brand-title">TUCA</h1>
+
+              <img
+                class="brand-illustration"
+                src="assets/images/tuca_img2.png"
+                alt="Ilustração do artista"
+              >
+            </div>
+
+            <span class="brand-line" aria-hidden="true"></span>
+          </a>
+
+          <div class="thumb-carousel" aria-label="Carrossel vertical de Background Design">
+            <div class="thumb-viewport">
+              <div class="thumb-track" id="thumbTrack">
+
+                <button
+                  class="thumb-button is-active"
+                  type="button"
+                  data-full="assets/images/carrosel_mp4_processo_cenario_sala_do_chefe.mp4"
+                  data-type="video"
+                  data-alt="Vídeo de processo do cenário sala do chefe"
+                >
+                  <video
+                    class="thumb-media thumb-video"
+                    muted
+                    loop
+                    autoplay
+                    playsinline
+                    preload="metadata"
+                    disablePictureInPicture
+                    tabindex="-1"
+                    aria-hidden="true"
+                  >
+                    <source src="assets/images/carrosel_mp4_processo_cenario_sala_do_chefe.mp4" type="video/mp4">
+                  </video>
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_previa_aberto_predios.png"
+                  data-type="image"
+                  data-alt="Background design urbano ao entardecer"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_previa_aberto_predios.png"
+                    alt="Miniatura do background urbano"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_aberto_bar1.png"
+                  data-type="image"
+                  data-alt="Background design de interior com personagens"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_aberto_bar1.png"
+                    alt="Miniatura do background interior"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_no_leaf_clover1.png"
+                  data-type="image"
+                  data-alt="Background design de campo colorido"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_no_leaf_clover1.png"
+                    alt="Miniatura do background colorido"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_estabelecendo_escritorio.png"
+                  data-type="image"
+                  data-alt="Background design de escritório"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_estabelecendo_escritorio.png"
+                    alt="Miniatura do escritório"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_mercado_open.png"
+                  data-type="image"
+                  data-alt="Background design de mercado"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_mercado_open.png"
+                    alt="Miniatura do mercado"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_montanhas.png"
+                  data-type="image"
+                  data-alt="Background design de montanhas"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_montanhas.png"
+                    alt="Miniatura das montanhas"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_previa_transicao_cidade.png"
+                  data-type="image"
+                  data-alt="Background design de transição da cidade"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_previa_transicao_cidade.png"
+                    alt="Miniatura da transição da cidade"
+                  >
+                </button>
+
+                <button
+                  class="thumb-button"
+                  type="button"
+                  data-full="assets/images/carrosel_sala_chefe.png"
+                  data-type="image"
+                  data-alt="Background design de sala do chefe"
+                >
+                  <img
+                    class="thumb-media"
+                    src="assets/images/carrosel_sala_chefe.png"
+                    alt="Miniatura da sala do chefe"
+                  >
+                </button>
+
+              </div>
+            </div>
+          </div>
+        </aside>
+
+        <section class="bgd-main">
+          <h2 class="page-title">*BACKGROUND DESIGN*</h2>
+
+          <div class="viewer-frame">
+            <img
+              id="mainImage"
+              class="viewer-media"
+              src=""
+              alt=""
+              hidden
+            >
+
+            <video
+              id="mainVideo"
+              class="viewer-media viewer-video"
+              muted
+              loop
+              autoplay
+              playsinline
+              preload="metadata"
+              disablePictureInPicture
+              hidden
+            ></video>
+          </div>
+        </section>
+      </div>
+
+      <footer class="bgd-footer">
+        <p>*desantanatuca@gmail.com</p>
+        <p>*@TUCA STUDIO</p>
+      </footer>
+
+      <img
+        class="corner-star corner-star-left"
+        src="assets/images/star-purple.png"
+        alt=""
+        aria-hidden="true"
+      >
+
+      <img
+        class="corner-star corner-star-right"
+        src="assets/images/star-purple.png"
+        alt=""
+        aria-hidden="true"
+      >
+    </section>
+  </main>
+</body>
+</html>
