@@ -1,117 +1,134 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TUCA | Portfólio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TUCA Studio</title>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
   <link
     href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800&display=swap"
     rel="stylesheet"
-  >
+  />
 
-  <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
-  <div class="page-shell">
-    <main class="viewport-frame home-page">
-      <section class="home-stage">
-        <section class="home-layout">
-          <aside class="sidebar">
-            <div class="brand">
-              <div class="brand-row">
-                <h1 class="brand-title">TUCA</h1>
+  <main class="site-shell" aria-label="TUCA Studio home">
+    <aside class="sidebar" aria-label="Menu lateral">
+      <a class="brand" href="#" aria-label="Página inicial TUCA Studio">
+        <span>TUCA</span>
 
-                <img
-                  class="brand-illustration"
-                  src="assets/images/tuca_img2.png"
-                  alt="Ilustração decorativa"
-                >
-              </div>
+        <span class="brand-mark" aria-hidden="true">
+          <img
+            src="assets/images/aster_amarelo2.png"
+            alt=""
+            class="brand-asterisk-img"
+            onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';"
+          />
 
-              <span class="brand-line" aria-hidden="true"></span>
-            </div>
+          <span class="brand-asterisk-fallback">✱</span>
+        </span>
 
-            <nav class="menu-group" aria-label="Original Work">
-              <h2 class="menu-heading">*ORIGINAL WORK*</h2>
+        <span>STUDIO</span>
+      </a>
 
-              <ul class="menu-list">
-                <li><a class="nav-link" href="background-design.html">*Background Design</a></li>
-                <li><a class="nav-link" href="animation-2d.html">*2D Animation</a></li>
-                <li><a class="nav-link" href="character-design.html">*Character Design</a></li>
-              </ul>
-            </nav>
+      <nav class="side-nav" aria-label="Navegação principal">
+        <div class="nav-group original-work-group">
+          <a
+            class="nav-link nav-link-parent"
+            href="#original-work"
+            data-dropdown="original-work"
+            aria-expanded="false"
+          >
+            <span>Original Work</span>
+          </a>
 
-            <nav class="menu-group" aria-label="Projects">
-              <h2 class="menu-heading">*PROJECTS*</h2>
-
-              <ul class="menu-list">
-                <li><a class="nav-link" href="invisible.html">*Invisible</a></li>
-                <li><a class="nav-link" href="no-leaf-clover.html">*No Leaf Clover</a></li>
-                <li><a class="nav-link" href="ue.html">*Ué</a></li>
-              </ul>
-            </nav>
-
-            <div class="menu-group menu-group-about">
-              <h2 class="menu-heading">*ABOUT ME*</h2>
-            </div>
-
-            <div class="menu-group menu-group-contact" aria-label="Contato">
-              <h2 class="menu-heading">*FIND ME AT*</h2>
-
-              <ul class="menu-list">
-                <li>
-                  <a class="nav-link" href="mailto:desantanatuca@gmail.com">
-                    *desantanatuca@gmail.com
-                  </a>
-                </li>
-                <li>
-                  <a class="nav-link" href="placeholder.html">
-                    *@TUCA STUDIO
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </aside>
-
-          <section class="featured-area" aria-label="Vídeo em destaque">
-            <a
-              class="video-card"
-              href="https://youtu.be/m6gov1nSnWU"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Abrir vídeo do YouTube"
-            >
-              <img
-                src="assets/images/tuca_thumb.png"
-                alt="Thumbnail do vídeo em destaque"
-              >
-
-              <span class="play-button" aria-hidden="true">
-                <span class="play-triangle"></span>
-              </span>
+          <div class="nav-submenu" aria-label="Submenu Original Work">
+            <a class="nav-sub-link" href="#illustrations">
+              <span>&gt; Illustrations</span>
             </a>
-          </section>
-        </section>
 
-        <img
-          class="corner-star corner-star-left"
-          src="assets/images/star-purple.png"
-          alt=""
-          aria-hidden="true"
-        >
+            <a class="nav-sub-link" href="#background-design">
+              <span>&gt; Background Design</span>
+            </a>
 
-        <img
-          class="corner-star corner-star-right"
-          src="assets/images/star-purple.png"
-          alt=""
-          aria-hidden="true"
-        >
-      </section>
-    </main>
-  </div>
+            <a class="nav-sub-link" href="#2d-animation">
+              <span>&gt; 2D Animation</span>
+            </a>
+
+            <a class="nav-sub-link" href="#character-design">
+              <span>&gt; Character Design</span>
+            </a>
+          </div>
+        </div>
+
+        <a class="nav-link" href="#projects">
+          <span>Projects</span>
+        </a>
+
+        <a class="nav-link" href="#sketchbook">
+          <span>Sketchbook</span>
+        </a>
+
+        <a class="nav-link" href="#about-me">
+          <span>About Me</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <a class="footer-mascot-link" href="#" aria-label="TUCA Studio">
+          <img
+            class="footer-mascot"
+            src="assets/images/logo_tuca_amarelo.png"
+            alt=""
+          />
+        </a>
+
+        <a class="footer-email" href="mailto:DESANTANATUCA@GMAIL.COM">
+          <span class="footer-icon footer-email-icon" aria-hidden="true"></span>
+          <span>DESANTANATUCA@GMAIL.COM</span>
+        </a>
+
+        <a class="footer-social" href="https://youtu.be/m6gov1nSnWU" aria-label="YouTube TUCA Studio">
+          <span class="footer-icon youtube-mini" aria-hidden="true"></span>
+          <span>@TUCASTUDIO</span>
+        </a>
+
+        <a class="footer-resume" href="#resume">
+          <span class="footer-icon footer-resume-icon" aria-hidden="true"></span>
+          <span>RESUME</span>
+        </a>
+
+        <div class="color-strip" aria-hidden="true">
+          <span class="strip-white"></span>
+          <span class="strip-yellow"></span>
+          <span class="strip-orange"></span>
+          <span class="strip-red"></span>
+        </div>
+      </div>
+    </aside>
+
+    <section class="hero carousel" aria-label="Carrossel de imagens principais">
+      <div class="hero-viewport">
+        <div class="hero-track">
+          <!-- As imagens serão inseridas automaticamente pelo JavaScript -->
+        </div>
+      </div>
+
+      <button class="hero-arrow hero-arrow-left" type="button" aria-label="Imagem anterior">
+        &lt;
+      </button>
+
+      <button class="hero-arrow hero-arrow-right" type="button" aria-label="Próxima imagem">
+        &gt;
+      </button>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
