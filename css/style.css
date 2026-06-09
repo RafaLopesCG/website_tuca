@@ -176,6 +176,22 @@ body {
   outline: none;
 }
 
+/* Item principal ativo: Projects, Sketchbook, About Me */
+.nav-link.is-active {
+  background: var(--menu-orange);
+  color: var(--text-white);
+}
+
+.nav-link.is-active span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  bottom: -0.12em;
+  height: 0.08em;
+  background: currentColor;
+}
+
 /* Estado aberto/selecionado do Original Work */
 .original-work-group.is-open {
   background: var(--menu-orange);
@@ -300,7 +316,7 @@ body {
 }
 
 .footer-mascot {
-  width: clamp(42px, 2.7vw, 54px);
+  width: clamp(48px, 3vw, 62px);
   height: auto;
 
   display: block;
@@ -335,22 +351,22 @@ body {
 }
 
 .footer-email {
-  gap: 0.3rem;
-  font-size: clamp(10px, 0.7vw, 12px);
+  gap: 0.38rem;
+  font-size: clamp(11px, 0.78vw, 13px);
   letter-spacing: -0.05em;
   margin-bottom: 0.28rem;
 }
 
 .footer-social {
-  gap: 0.28rem;
-  font-size: clamp(10px, 0.7vw, 12px);
+  gap: 0.36rem;
+  font-size: clamp(11px, 0.78vw, 13px);
   letter-spacing: -0.05em;
   margin-bottom: 0.22rem;
 }
 
 .footer-resume {
-  gap: 0.24rem;
-  font-size: clamp(10px, 0.7vw, 12px);
+  gap: 0.32rem;
+  font-size: clamp(11px, 0.78vw, 13px);
   letter-spacing: -0.05em;
 }
 
@@ -372,8 +388,8 @@ body {
 .footer-email-icon {
   position: relative;
 
-  width: 12px;
-  height: 9px;
+  width: 15px;
+  height: 11px;
 
   background: var(--title-yellow);
   border-radius: 1px;
@@ -385,8 +401,8 @@ body {
   position: absolute;
   top: 1px;
 
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
 
   border-bottom: 2px solid var(--page-bg);
 }
@@ -407,8 +423,8 @@ body {
 .youtube-mini {
   position: relative;
 
-  width: 14px;
-  height: 10px;
+  width: 17px;
+  height: 12px;
 
   background: var(--title-yellow);
   border-radius: 3px;
@@ -434,8 +450,8 @@ body {
 .footer-resume-icon {
   position: relative;
 
-  width: 10px;
-  height: 13px;
+  width: 12px;
+  height: 15px;
 
   border: 2px solid var(--title-yellow);
   border-radius: 1px;
@@ -447,7 +463,7 @@ body {
   left: 1px;
   top: 3px;
 
-  width: 4px;
+  width: 5px;
   height: 1px;
 
   background: var(--title-yellow);
@@ -504,10 +520,10 @@ body {
 }
 
 /* =========================
-   CARROSSEL PRINCIPAL
+   PAINEL DE CONTEÚDO
 ========================= */
 
-.hero {
+.content-panel {
   position: relative;
   min-width: 0;
   min-height: 0;
@@ -517,8 +533,36 @@ body {
   padding-right: var(--right-gap);
   padding-bottom: var(--bottom-gap);
 
-  overflow: hidden;
   background: var(--page-bg);
+  overflow: hidden;
+}
+
+.page-section {
+  display: none;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-section.active {
+  display: block;
+}
+
+/* =========================
+   HOME / CARROSSEL
+========================= */
+
+.page-section-home {
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+  background: #169bd3;
 }
 
 .hero-viewport {
@@ -585,14 +629,57 @@ body {
 }
 
 .hero-arrow-right {
-  right: calc(var(--right-gap) + clamp(18px, 2vw, 34px));
+  right: clamp(18px, 2vw, 34px);
+}
+
+/* =========================
+   PÁGINAS INTERNAS
+========================= */
+
+.content-page {
+  overflow-y: auto;
+  background: #f7f4ea;
+  color: #242424;
+}
+
+.content-page-inner {
+  min-height: 130%;
+  padding: clamp(42px, 5vw, 82px);
+}
+
+.content-page-inner h1 {
+  margin: 0 0 28px;
+
+  color: #242424;
+
+  font-size: clamp(32px, 4vw, 72px);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.08em;
+}
+
+.content-page-inner p {
+  max-width: 760px;
+  margin: 0 0 22px;
+
+  font-size: clamp(15px, 1.2vw, 21px);
+  line-height: 1.55;
+  letter-spacing: -0.04em;
+}
+
+.placeholder-block {
+  width: min(720px, 100%);
+  height: 220px;
+
+  margin-top: 32px;
+
+  background: rgba(36, 36, 36, 0.12);
 }
 
 /* =========================
    RESPONSIVO
 ========================= */
 
-/* Mantém o layout desktop de forma mais segura em larguras pequenas */
 @media (max-width: 900px) {
   body {
     overflow: auto;
@@ -600,5 +687,528 @@ body {
 
   .site-shell {
     min-width: 860px;
+  }
+}
+
+
+/* =========================
+   ABOUT ME
+========================= */
+
+.about-page {
+  width: 100%;
+  height: 100%;
+
+  background: #f7f4ea;
+  color: #242424;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.about-page .about-page-inner {
+  width: 100%;
+  min-height: 100%;
+
+  margin: 0;
+
+  padding:
+    clamp(42px, 5vw, 78px)
+    clamp(64px, 7vw, 120px)
+    clamp(54px, 5vw, 82px);
+
+  background: #f7f4ea;
+  color: #242424;
+}
+
+/* Topo da página */
+
+.about-hero-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(330px, 34%) minmax(0, 1fr);
+  column-gap: clamp(72px, 7vw, 132px);
+  align-items: center;
+
+  margin-bottom: clamp(66px, 7vw, 104px);
+}
+
+.about-image-cluster {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
+.about-photo {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  background: rgba(36, 36, 36, 0.14);
+}
+
+.about-deco-head {
+  position: absolute;
+  z-index: 2;
+
+  width: clamp(72px, 5vw, 98px);
+  height: auto;
+
+  left: -38px;
+  top: -26px;
+
+  object-fit: contain;
+  transform: rotate(-8deg);
+}
+
+.about-deco-star {
+  position: absolute;
+  z-index: 2;
+
+  width: clamp(82px, 5.4vw, 108px);
+  height: auto;
+
+  right: -42px;
+  bottom: -44px;
+
+  object-fit: contain;
+  transform: rotate(16deg);
+}
+
+/* Título e chamada */
+
+.about-intro {
+  min-width: 0;
+  max-width: 720px;
+}
+
+.about-title {
+  margin: 0 0 36px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+
+  color: #ff7900;
+
+  font-size: clamp(64px, 6.2vw, 106px);
+  line-height: 0.88;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: -0.08em;
+}
+
+.about-title span {
+  display: block;
+}
+
+.about-title-line {
+  display: flex !important;
+  align-items: center;
+  gap: clamp(22px, 2.2vw, 36px);
+}
+
+.about-signature {
+  width: clamp(220px, 20vw, 340px);
+  height: auto;
+
+  display: inline-block;
+  object-fit: contain;
+
+  transform: rotate(2deg) translateY(6px);
+}
+
+.about-lead {
+  max-width: 640px;
+  margin: 0;
+
+  color: #242424;
+
+  font-size: clamp(18px, 1.22vw, 23px);
+  line-height: 1.35;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+/* Texto principal */
+
+.about-text-row {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(145px, 220px);
+  column-gap: clamp(64px, 6vw, 112px);
+  align-items: start;
+}
+
+.about-copy {
+  max-width: 860px;
+  justify-self: start;
+  margin-left: clamp(0px, 3vw, 80px);
+}
+
+.about-copy p {
+  margin: 0 0 28px;
+
+  color: #242424;
+
+  font-size: clamp(15px, 1.06vw, 19px);
+  line-height: 1.36;
+  font-weight: 800;
+  letter-spacing: -0.055em;
+}
+
+.about-text-link {
+  color: #242424;
+  text-decoration: underline;
+  text-decoration-thickness: 0.09em;
+  text-underline-offset: 0.12em;
+}
+
+.about-character {
+  width: clamp(150px, 10vw, 210px);
+  height: auto;
+
+  margin-top: 8px;
+  margin-right: clamp(20px, 4vw, 80px);
+
+  display: block;
+  object-fit: contain;
+  justify-self: end;
+}
+
+.about-softwares {
+  margin-top: 62px;
+  margin-bottom: 34px;
+
+  text-align: center;
+}
+
+.about-softwares p {
+  max-width: 900px;
+  margin: 0 auto 22px;
+
+  font-size: clamp(14px, 0.98vw, 18px);
+  line-height: 1.35;
+}
+
+.about-fun-fact {
+  max-width: 900px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+
+  text-align: center;
+}
+
+/* Ajuste para telas intermediárias */
+
+@media (max-width: 1200px) {
+  .about-page .about-page-inner {
+    padding: 38px 48px 58px;
+  }
+
+  .about-hero-row {
+    grid-template-columns: 280px minmax(0, 1fr);
+    column-gap: 48px;
+  }
+
+  .about-image-cluster {
+    max-width: 300px;
+  }
+
+  .about-title {
+    font-size: clamp(46px, 5vw, 68px);
+  }
+
+  .about-signature {
+    width: clamp(145px, 15vw, 205px);
+  }
+
+  .about-text-row {
+    grid-template-columns: minmax(0, 1fr) 130px;
+    column-gap: 34px;
+  }
+
+  .about-copy {
+    margin-left: 0;
+  }
+
+  .about-character {
+    width: 130px;
+    margin-right: 0;
+  }
+}
+
+/* =========================
+   BACKGROUND DESIGN / GALERIA
+========================= */
+
+.gallery-page {
+  width: 100%;
+  height: 100%;
+
+  background: #f7f4ea;
+  color: #242424;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.gallery-page-inner {
+  width: 100%;
+  min-height: 100%;
+
+  padding:
+    clamp(34px, 4.4vw, 64px)
+    clamp(42px, 5vw, 78px)
+    clamp(48px, 5vw, 78px);
+
+  background: #f7f4ea;
+}
+
+.gallery-header {
+  margin-bottom: clamp(24px, 3vw, 38px);
+
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.gallery-header h1 {
+  margin: 0 0 8px;
+
+  color: #242424;
+
+  font-size: clamp(22px, 2vw, 34px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.gallery-header p {
+  margin: 0;
+
+  color: #ff7900;
+
+  font-size: clamp(12px, 0.95vw, 16px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+/* Grade das imagens */
+
+.gallery-grid {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap:
+    clamp(22px, 2.4vw, 34px)
+    clamp(26px, 2.8vw, 42px);
+}
+
+.gallery-item {
+  width: 100%;
+  margin: 0;
+
+  background: rgba(36, 36, 36, 0.12);
+
+  overflow: hidden;
+}
+
+/* Todas as imagens ficam exatamente do mesmo tamanho */
+.gallery-item img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+}
+
+/* Ajuste para telas intermediárias */
+@media (max-width: 1100px) {
+  .gallery-page-inner {
+    padding: 36px 42px 56px;
+  }
+
+  .gallery-grid {
+    gap: 22px;
+  }
+}
+
+
+/* =========================
+   CHARACTER DESIGN / MOSAICO
+========================= */
+
+.character-page {
+  width: 100%;
+  height: 100%;
+
+  background: #f7f4ea;
+  color: #242424;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.character-page-inner {
+  width: 100%;
+  min-height: 100%;
+
+  padding:
+    clamp(34px, 4.4vw, 64px)
+    clamp(42px, 5vw, 78px)
+    clamp(48px, 5vw, 78px);
+
+  background: #f7f4ea;
+}
+
+/* Cabeçalho */
+
+.character-header {
+  margin-bottom: clamp(28px, 3vw, 42px);
+
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.character-header h1 {
+  margin: 0 0 8px;
+
+  color: #242424;
+
+  font-size: clamp(22px, 2vw, 34px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.character-header p {
+  margin: 0;
+
+  color: #d7ec00;
+
+  font-size: clamp(12px, 0.95vw, 16px);
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+/* Mosaico */
+
+.character-mosaic {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: dense;
+  gap:
+    clamp(20px, 2.2vw, 34px)
+    clamp(22px, 2.5vw, 38px);
+}
+
+.character-card {
+  position: relative;
+
+  display: block;
+  width: 100%;
+
+  overflow: hidden;
+
+  background: rgba(36, 36, 36, 0.12);
+  text-decoration: none;
+
+  transition:
+    transform 160ms ease,
+    opacity 160ms ease;
+}
+
+.character-card:hover,
+.character-card:focus-visible {
+  transform: translateY(-4px);
+  opacity: 0.92;
+  outline: none;
+}
+
+.character-card img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  user-select: none;
+}
+
+/* Variações do mosaico */
+
+.character-card-square {
+  grid-column: span 4;
+  aspect-ratio: 1 / 1;
+}
+
+.character-card-wide {
+  grid-column: span 8;
+  aspect-ratio: 16 / 9;
+}
+
+.character-card-full {
+  grid-column: span 12;
+  aspect-ratio: 4 / 1;
+}
+
+.character-card-tall {
+  grid-column: span 4;
+  grid-row: span 2;
+  aspect-ratio: 3 / 4;
+}
+
+.character-card-medium {
+  grid-column: span 8;
+  aspect-ratio: 4 / 3;
+}
+
+/* Ajuste para telas intermediárias */
+
+@media (max-width: 1100px) {
+  .character-page-inner {
+    padding: 36px 42px 56px;
+  }
+
+  .character-mosaic {
+    gap: 22px;
+  }
+
+  .character-card-square {
+    grid-column: span 6;
+  }
+
+  .character-card-wide,
+  .character-card-medium {
+    grid-column: span 6;
+  }
+
+  .character-card-full {
+    grid-column: span 12;
+    aspect-ratio: 5 / 1.4;
+  }
+
+  .character-card-tall {
+    grid-column: span 6;
   }
 }

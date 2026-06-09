@@ -19,7 +19,12 @@
 <body>
   <main class="site-shell" aria-label="TUCA Studio home">
     <aside class="sidebar" aria-label="Menu lateral">
-      <a class="brand" href="#" aria-label="Página inicial TUCA Studio">
+      <a
+        class="brand"
+        href="#home"
+        data-section="home"
+        aria-label="Página inicial TUCA Studio"
+      >
         <span>TUCA</span>
 
         <span class="brand-mark" aria-hidden="true">
@@ -48,33 +53,33 @@
           </a>
 
           <div class="nav-submenu" aria-label="Submenu Original Work">
-            <a class="nav-sub-link" href="#illustrations">
+            <a class="nav-sub-link" href="#illustrations" data-section="illustrations">
               <span>&gt; Illustrations</span>
             </a>
 
-            <a class="nav-sub-link" href="#background-design">
+            <a class="nav-sub-link" href="#background-design" data-section="background-design">
               <span>&gt; Background Design</span>
             </a>
 
-            <a class="nav-sub-link" href="#2d-animation">
+            <a class="nav-sub-link" href="#animation-2d" data-section="animation-2d">
               <span>&gt; 2D Animation</span>
             </a>
 
-            <a class="nav-sub-link" href="#character-design">
+            <a class="nav-sub-link" href="#character-design" data-section="character-design">
               <span>&gt; Character Design</span>
             </a>
           </div>
         </div>
 
-        <a class="nav-link" href="#projects">
+        <a class="nav-link" href="#projects" data-section="projects">
           <span>Projects</span>
         </a>
 
-        <a class="nav-link" href="#sketchbook">
+        <a class="nav-link" href="#sketchbook" data-section="sketchbook">
           <span>Sketchbook</span>
         </a>
 
-        <a class="nav-link" href="#about-me">
+        <a class="nav-link" href="#about-me" data-section="about-me">
           <span>About Me</span>
         </a>
       </nav>
@@ -93,7 +98,13 @@
           <span>DESANTANATUCA@GMAIL.COM</span>
         </a>
 
-        <a class="footer-social" href="https://youtu.be/m6gov1nSnWU" aria-label="YouTube TUCA Studio">
+        <a
+          class="footer-social"
+          href="https://www.youtube.com/@TUCASTUDIO"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="YouTube TUCA Studio"
+        >
           <span class="footer-icon youtube-mini" aria-hidden="true"></span>
           <span>@TUCASTUDIO</span>
         </a>
@@ -112,20 +123,322 @@
       </div>
     </aside>
 
-    <section class="hero carousel" aria-label="Carrossel de imagens principais">
-      <div class="hero-viewport">
-        <div class="hero-track">
-          <!-- As imagens serão inseridas automaticamente pelo JavaScript -->
+    <section class="content-panel" aria-label="Conteúdo principal">
+      <section class="page-section page-section-home active" id="home" data-page="home">
+        <div class="hero carousel" aria-label="Carrossel de imagens principais">
+          <div class="hero-viewport">
+            <div class="hero-track">
+              <!-- As imagens serão inseridas automaticamente pelo JavaScript -->
+            </div>
+          </div>
+
+          <button class="hero-arrow hero-arrow-left" type="button" aria-label="Imagem anterior">
+            &lt;
+          </button>
+
+          <button class="hero-arrow hero-arrow-right" type="button" aria-label="Próxima imagem">
+            &gt;
+          </button>
         </div>
+      </section>
+
+      <section class="page-section content-page" id="illustrations" data-page="illustrations">
+        <div class="content-page-inner">
+          <h1>Illustrations</h1>
+          <p>Conteúdo da seção Illustrations será inserido aqui.</p>
+        </div>
+      </section>
+
+<section class="page-section content-page gallery-page" id="background-design" data-page="background-design">
+  <div class="gallery-page-inner">
+    <header class="gallery-header">
+      <h1>Background Design</h1>
+      <p>Original Work</p>
+    </header>
+
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/bgdesign_1.png"
+          alt="Background design 1"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_aberto_bar1.png"
+          alt="Background design 2"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_estabelecendo_escritorio.png"
+          alt="Background design 3"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_no_leaf_clover1.png"
+          alt="Background design 4"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_predios_abertos.png"
+          alt="Background design 5"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_sala_chefe.png"
+          alt="Background design 6"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_mercado_open.png"
+          alt="Background design 7"
+        />
+      </figure>
+
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_montanhas.png"
+          alt="Background design 8"
+        />
+      </figure>
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/bgdesign_2.png"
+          alt="Background design "
+        />
+      </figure>
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/bgdesign_3.jpeg"
+          alt="Background design 10"
+        />
+      </figure>
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/bgdesign_peru.png"
+          alt="Background design 11"
+        />
+      </figure>
+      <figure class="gallery-item">
+        <img
+          src="assets/images/bg/carrosel_preto_branco.png"
+          alt="Background design 12"
+        />
+      </figure>
+    </div>
+  </div>
+</section>
+
+      <section class="page-section content-page" id="animation-2d" data-page="animation-2d">
+        <div class="content-page-inner">
+          <h1>2D Animation</h1>
+          <p>Conteúdo da seção 2D Animation será inserido aqui.</p>
+        </div>
+      </section>
+
+<section class="page-section content-page character-page" id="character-design" data-page="character-design">
+  <div class="character-page-inner">
+    <header class="character-header">
+      <h1>Character Design</h1>
+      <p>Original Work</p>
+    </header>
+
+    <div class="character-mosaic">
+      <!-- Depois, cada href poderá apontar para uma página interna de detalhes dessa arte -->
+
+      <a class="character-card character-card-square" href="#" aria-label="Abrir character design 1">
+        <img
+          src="assets/images//characters/zoey.png"
+          alt="Character design 1"
+        />
+      </a>
+
+      <a class="character-card character-card-wide" href="#" aria-label="Abrir character design 2">
+        <img
+          src="assets/images/characters/cc_tuca_shhh.png"
+          alt="Character design 2"
+        />
+      </a>
+
+      <a class="character-card character-card-full" href="#" aria-label="Abrir character design 3">
+        <img
+          src="assets/images/characters/ghustavlino.gif"
+          alt="Character design 3"
+        />
+      </a>
+
+      <a class="character-card character-card-tall" href="#" aria-label="Abrir character design 4">
+        <img
+          src="assets/images/characters/bart.gif"
+          alt="Character design 4"
+        />
+      </a>
+
+      <a class="character-card character-card-square" href="#" aria-label="Abrir character design 5">
+        <img
+          src="assets/images/characters/juular.png"
+          alt="Character design 5"
+        />
+      </a>
+
+      <a class="character-card character-card-medium" href="#" aria-label="Abrir character design 6">
+        <img
+          src="assets/images/characters/modelsheet1.png"
+          alt="Character design 6"
+        />
+      </a>
+      <!----
+      <a class="character-card character-card-wide" href="#" aria-label="Abrir character design 7">
+        <img
+          src="assets/images/logo_tuca_amarelo.png"
+          alt="Character design 7"
+        />
+      </a>
+
+      <a class="character-card character-card-square" href="#" aria-label="Abrir character design 8">
+        <img
+          src="assets/images/logo_tuca_amarelo.png"
+          alt="Character design 8"
+        />
+      </a>
+      --->
+    </div>
+  </div>
+</section>
+
+      <section class="page-section content-page" id="projects" data-page="projects">
+        <div class="content-page-inner">
+          <h1>Projects</h1>
+          <p>Conteúdo da seção Projects será inserido aqui.</p>
+        </div>
+      </section>
+
+      <section class="page-section content-page" id="sketchbook" data-page="sketchbook">
+        <div class="content-page-inner">
+          <h1>Sketchbook</h1>
+          <p>Conteúdo da seção Sketchbook será inserido aqui.</p>
+        </div>
+      </section>
+
+<section class="page-section content-page about-page" id="about-me" data-page="about-me">
+  <div class="about-page-inner">
+    <section class="about-hero-row">
+      <div class="about-image-cluster">
+        <img
+          class="about-deco-head"
+          src="assets/images/logo_tuca_amarelo.png"
+          alt=""
+        />
+
+        <img
+          class="about-photo"
+          src="assets/images/logo_tuca_amarelo.png"
+          alt="Placeholder da foto da página About Me"
+        />
+
+        <img
+          class="about-deco-star"
+          src="assets/images/logo_tuca_amarelo.png"
+          alt=""
+        />
       </div>
 
-      <button class="hero-arrow hero-arrow-left" type="button" aria-label="Imagem anterior">
-        &lt;
-      </button>
+      <div class="about-intro">
+        <h1 class="about-title">
+          <span>Oi!</span>
 
-      <button class="hero-arrow hero-arrow-right" type="button" aria-label="Próxima imagem">
-        &gt;
-      </button>
+          <span class="about-title-line">
+            I´M
+            <img
+              class="about-signature"
+              src="assets/images/logo_tuca_amarelo.png"
+              alt="Placeholder da assinatura"
+            />
+          </span>
+        </h1>
+
+        <p class="about-lead">
+          Drawing is my passion and my main goal is to evoke the feelings I have
+          for art to those who witness the things I make.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-text-row">
+      <div class="about-copy">
+        <p>
+          Growing up in Rio de Janeiro, I’ve developed my personal art taste
+          quite soon, as I was fiddling around with graffiti and street art
+          since I was 7 years old, mesmerized by the idea of creating absurd
+          looking characters, 3D letters and blocky shapes. Graffiti was my main
+          source of inspiration until my teenage years as I loved the artistic
+          freedom feeling it gave me, by it’s own transgressing nature.
+        </p>
+
+        <p>
+          During the pandemic, art was a coping mechanism during such troubled
+          times, it actually stopped being a hobby as I grew interested in
+          learning it’s core fundamentals, rules and history so I could better
+          my perceptions about what drawing really meant to me - I always wanted
+          to illustrate the reality I see but with a touch of artistic values.
+        </p>
+
+        <p>
+          Graffiti also led me into typography studies. I loved creating
+          stylized letters alongside my usual doodles. This got me into studying
+          Graphic Design in college, where I had a few animation classes, which
+          were enough for me to fall in love with the process of making my own
+          animated projects.
+        </p>
+
+        <p>
+          In 2025 I graduated Design School with the animated short film
+          <a class="about-text-link" href="#">“Invisible”</a> as my thesis -
+          unraveling the communication power of illustrated media to deal with
+          sensitive topics. Since then I’ve been working nonstop from animation
+          to varied illustration styles and genres.
+        </p>
+
+        <div class="about-softwares">
+          <p>
+            Most used softwares -Infinite painter-Adobe Suite -Affinity
+          </p>
+
+          <p>
+            -Blender -Moho Pro -Open Toonz-Krita -TvPaint - Callipeg -Davinci
+            Resolve
+          </p>
+        </div>
+
+        <p class="about-fun-fact">
+          Fun fact! One of my favorite hobbies is actually learning new art
+          softwares, specialty open source ones. These are some of my go to
+          softwares in daily use, but there are many more softwares I loved
+          exploring and I’m always ready to learn a few more!
+        </p>
+      </div>
+
+      <img
+        class="about-character"
+        src="assets/images/logo_tuca_amarelo.png"
+        alt="Placeholder do personagem da página About Me"
+      />
+    </section>
+  </div>
+</section>
+
+
     </section>
   </main>
 
