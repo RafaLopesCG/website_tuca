@@ -3,17 +3,16 @@
 ========================= */
 
 const slides = [
-   "assets/images/bg/carrosel_no_leaf_clover1.png",
-   "assets/images/bg/carrosel_aberto_bar1.png",
-   "assets/images/bg/carrosel_estabelecendo_escritorio.png",
-   "assets/images/bg/carrosel_mercado_open.png",
-   "assets/images/bg/carrosel_montanhas.png",
-   "assets/images/bg/carrosel_previa_aberto_predios.png",
-   "assets/images/bg/carrosel_sala_chefe.png",
-   "assets/images/bg/carrosel_previa_transicao_cidade.png",
-   "assets/images/bg/carrosel_preto_branco.png",
-  ];
-
+  "assets/images/bg/carrosel_no_leaf_clover1.png",
+  "assets/images/bg/carrosel_aberto_bar1.png",
+  "assets/images/bg/carrosel_estabelecendo_escritorio.png",
+  "assets/images/bg/carrosel_mercado_open.png",
+  "assets/images/bg/carrosel_montanhas.png",
+  "assets/images/bg/carrosel_previa_aberto_predios.png",
+  "assets/images/bg/carrosel_sala_chefe.png",
+  "assets/images/bg/carrosel_previa_transicao_cidade.png",
+  "assets/images/bg/carrosel_preto_branco.png",
+];
 
 let currentSlide = 0;
 let carouselInterval = null;
@@ -118,6 +117,14 @@ const originalWorkButton = document.querySelector(".nav-link-parent");
 const navSubLinks = document.querySelectorAll(".nav-sub-link");
 const navMainLinks = document.querySelectorAll(".side-nav > .nav-link");
 
+/*
+  Mapeia páginas internas/detalhes para o item de menu pai.
+  Assim, ao abrir a página da Zoey, o submenu Character Design continua ativo.
+*/
+const sectionParentMap = {
+  "zoey-detail": "character-design",
+};
+
 function clearMenuState() {
   navMainLinks.forEach((link) => {
     link.classList.remove("is-active");
@@ -126,6 +133,20 @@ function clearMenuState() {
   navSubLinks.forEach((link) => {
     link.classList.remove("is-active");
   });
+}
+
+function openOriginalWorkMenu() {
+  if (!originalWorkGroup || !originalWorkButton) return;
+
+  originalWorkGroup.classList.add("is-open");
+  originalWorkButton.setAttribute("aria-expanded", "true");
+}
+
+function closeOriginalWorkMenu() {
+  if (!originalWorkGroup || !originalWorkButton) return;
+
+  originalWorkGroup.classList.remove("is-open");
+  originalWorkButton.setAttribute("aria-expanded", "false");
 }
 
 function showSection(sectionId, updateUrl = true) {
@@ -150,35 +171,46 @@ function showSection(sectionId, updateUrl = true) {
     `.nav-sub-link[data-section="${sectionId}"]`
   );
 
+  const parentSectionId = sectionParentMap[sectionId];
+
+  const parentSubLink = parentSectionId
+    ? document.querySelector(`.nav-sub-link[data-section="${parentSectionId}"]`)
+    : null;
+
   const isHome = sectionId === "home";
 
   if (isHome) {
-    if (originalWorkGroup && originalWorkButton) {
-      originalWorkGroup.classList.remove("is-open");
-      originalWorkButton.setAttribute("aria-expanded", "false");
-    }
-
+    closeOriginalWorkMenu();
     startCarousel();
   } else {
     stopCarousel();
   }
 
+  /*
+    Links principais:
+    Projects, Sketchbook, About Me.
+  */
   if (clickedMainLink) {
     clickedMainLink.classList.add("is-active");
-
-    if (originalWorkGroup && originalWorkButton) {
-      originalWorkGroup.classList.remove("is-open");
-      originalWorkButton.setAttribute("aria-expanded", "false");
-    }
+    closeOriginalWorkMenu();
   }
 
+  /*
+    Subitens do Original Work:
+    Illustrations, Background Design, 2D Animation, Character Design.
+  */
   if (clickedSubLink) {
     clickedSubLink.classList.add("is-active");
+    openOriginalWorkMenu();
+  }
 
-    if (originalWorkGroup && originalWorkButton) {
-      originalWorkGroup.classList.add("is-open");
-      originalWorkButton.setAttribute("aria-expanded", "true");
-    }
+  /*
+    Páginas internas:
+    Exemplo: Zoey Detail mantém Character Design ativo.
+  */
+  if (parentSubLink) {
+    parentSubLink.classList.add("is-active");
+    openOriginalWorkMenu();
   }
 
   if (updateUrl) {
