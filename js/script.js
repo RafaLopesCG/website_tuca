@@ -3,8 +3,8 @@
 ========================= */
 
 const slides = [
-  "assets/images/bg/carrosel_no_leaf_clover1.png",
-  "assets/images/bg/carrosel_aberto_bar1.png",
+  "assets/images/bg/nlc2.png",
+  "assets/images/bg/carrossel_face.png",
   "assets/images/bg/carrosel_estabelecendo_escritorio.png",
   "assets/images/bg/carrosel_mercado_open.png",
   "assets/images/bg/carrosel_montanhas.png",
@@ -45,7 +45,8 @@ function showSlide(index) {
 
   currentSlide = (index + slides.length) % slides.length;
 
-  heroTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
+  heroTrack.style.transform =
+    `translateX(-${currentSlide * 100}%)`;
 }
 
 function nextSlide() {
@@ -61,16 +62,17 @@ function startCarousel() {
 
   stopCarousel();
 
-  carouselInterval = setInterval(() => {
-    nextSlide();
-  }, slideIntervalTime);
+  carouselInterval = setInterval(
+    nextSlide,
+    slideIntervalTime
+  );
 }
 
 function stopCarousel() {
-  if (carouselInterval) {
-    clearInterval(carouselInterval);
-    carouselInterval = null;
-  }
+  if (!carouselInterval) return;
+
+  clearInterval(carouselInterval);
+  carouselInterval = null;
 }
 
 function restartCarousel() {
@@ -82,45 +84,54 @@ createSlides();
 showSlide(0);
 startCarousel();
 
-if (previousButton) {
-  previousButton.addEventListener("click", () => {
-    previousSlide();
-    restartCarousel();
-  });
-}
+previousButton?.addEventListener("click", () => {
+  previousSlide();
+  restartCarousel();
+});
 
-if (nextButton) {
-  nextButton.addEventListener("click", () => {
-    nextSlide();
-    restartCarousel();
-  });
-}
+nextButton?.addEventListener("click", () => {
+  nextSlide();
+  restartCarousel();
+});
 
-if (carousel) {
-  carousel.addEventListener("mouseenter", () => {
-    stopCarousel();
-  });
+carousel?.addEventListener(
+  "mouseenter",
+  stopCarousel
+);
 
-  carousel.addEventListener("mouseleave", () => {
-    startCarousel();
-  });
-}
+carousel?.addEventListener(
+  "mouseleave",
+  startCarousel
+);
 
 /* =========================
    NAVEGAÇÃO INTERNA
 ========================= */
 
-const sections = document.querySelectorAll(".page-section");
-const sectionTriggers = document.querySelectorAll("[data-section]");
-const originalWorkGroup = document.querySelector(".original-work-group");
-const originalWorkButton = document.querySelector(".nav-link-parent");
-const navSubLinks = document.querySelectorAll(".nav-sub-link");
-const navMainLinks = document.querySelectorAll(".side-nav > .nav-link");
+const sections = document.querySelectorAll(
+  ".page-section"
+);
 
-/*
-  Mapeia páginas internas/detalhes para o item de menu pai.
-  Assim, ao abrir a página da Zoey, o submenu Character Design continua ativo.
-*/
+const sectionTriggers = document.querySelectorAll(
+  "[data-section]"
+);
+
+const originalWorkGroup = document.querySelector(
+  ".original-work-group"
+);
+
+const originalWorkButton = document.querySelector(
+  ".nav-link-parent"
+);
+
+const navSubLinks = document.querySelectorAll(
+  ".nav-sub-link"
+);
+
+const navMainLinks = document.querySelectorAll(
+  ".side-nav > .nav-link"
+);
+
 const sectionParentMap = {
   "zoey-detail": "character-design",
 };
@@ -139,20 +150,31 @@ function openOriginalWorkMenu() {
   if (!originalWorkGroup || !originalWorkButton) return;
 
   originalWorkGroup.classList.add("is-open");
-  originalWorkButton.setAttribute("aria-expanded", "true");
+
+  originalWorkButton.setAttribute(
+    "aria-expanded",
+    "true"
+  );
 }
 
 function closeOriginalWorkMenu() {
   if (!originalWorkGroup || !originalWorkButton) return;
 
   originalWorkGroup.classList.remove("is-open");
-  originalWorkButton.setAttribute("aria-expanded", "false");
+
+  originalWorkButton.setAttribute(
+    "aria-expanded",
+    "false"
+  );
 }
 
 function showSection(sectionId, updateUrl = true) {
-  const targetSection = document.getElementById(sectionId);
+  const targetSection =
+    document.getElementById(sectionId);
 
   if (!targetSection) return;
+
+  closeLightbox();
 
   sections.forEach((section) => {
     section.classList.remove("active");
@@ -163,19 +185,25 @@ function showSection(sectionId, updateUrl = true) {
 
   clearMenuState();
 
-  const clickedMainLink = document.querySelector(
-    `.side-nav > .nav-link[data-section="${sectionId}"]`
-  );
+  const clickedMainLink =
+    document.querySelector(
+      `.side-nav > .nav-link[data-section="${sectionId}"]`
+    );
 
-  const clickedSubLink = document.querySelector(
-    `.nav-sub-link[data-section="${sectionId}"]`
-  );
+  const clickedSubLink =
+    document.querySelector(
+      `.nav-sub-link[data-section="${sectionId}"]`
+    );
 
-  const parentSectionId = sectionParentMap[sectionId];
+  const parentSectionId =
+    sectionParentMap[sectionId];
 
-  const parentSubLink = parentSectionId
-    ? document.querySelector(`.nav-sub-link[data-section="${parentSectionId}"]`)
-    : null;
+  const parentSubLink =
+    parentSectionId
+      ? document.querySelector(
+          `.nav-sub-link[data-section="${parentSectionId}"]`
+        )
+      : null;
 
   const isHome = sectionId === "home";
 
@@ -186,43 +214,47 @@ function showSection(sectionId, updateUrl = true) {
     stopCarousel();
   }
 
-  /*
-    Links principais:
-    Projects, Sketchbook, About Me.
-  */
   if (clickedMainLink) {
-    clickedMainLink.classList.add("is-active");
+    clickedMainLink.classList.add(
+      "is-active"
+    );
+
     closeOriginalWorkMenu();
   }
 
-  /*
-    Subitens do Original Work:
-    Illustrations, Background Design, 2D Animation, Character Design.
-  */
   if (clickedSubLink) {
-    clickedSubLink.classList.add("is-active");
+    clickedSubLink.classList.add(
+      "is-active"
+    );
+
     openOriginalWorkMenu();
   }
 
-  /*
-    Páginas internas:
-    Exemplo: Zoey Detail mantém Character Design ativo.
-  */
   if (parentSubLink) {
-    parentSubLink.classList.add("is-active");
+    parentSubLink.classList.add(
+      "is-active"
+    );
+
     openOriginalWorkMenu();
   }
 
-  if (updateUrl) {
-    if (isHome) {
-      history.pushState(null, "", window.location.pathname);
-    } else {
-      history.pushState(null, "", `#${sectionId}`);
-    }
+  if (!updateUrl) return;
+
+  if (isHome) {
+    history.pushState(
+      null,
+      "",
+      window.location.pathname
+    );
+  } else {
+    history.pushState(
+      null,
+      "",
+      `#${sectionId}`
+    );
   }
 }
 
-/* Clique no logo e links com data-section */
 sectionTriggers.forEach((trigger) => {
   trigger.addEventListener("click", (event) => {
     const sectionId = trigger.dataset.section;
@@ -234,22 +266,494 @@ sectionTriggers.forEach((trigger) => {
   });
 });
 
-/* Clique em Original Work: abre/fecha dropdown, mas não troca a home */
 if (originalWorkButton && originalWorkGroup) {
-  originalWorkButton.addEventListener("click", (event) => {
-    event.preventDefault();
+  originalWorkButton.addEventListener(
+    "click",
+    (event) => {
+      event.preventDefault();
 
-    const isOpen = originalWorkGroup.classList.toggle("is-open");
-    originalWorkButton.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
+      const isOpen =
+        originalWorkGroup.classList.toggle(
+          "is-open"
+        );
+
+      originalWorkButton.setAttribute(
+        "aria-expanded",
+        String(isOpen)
+      );
+    }
+  );
 }
 
-/* Botão voltar/avançar do navegador */
 window.addEventListener("popstate", () => {
-  const sectionId = window.location.hash.replace("#", "") || "home";
+  const sectionId =
+    window.location.hash.replace("#", "") ||
+    "home";
+
   showSection(sectionId, false);
 });
 
-/* Estado inicial pela URL */
-const initialSection = window.location.hash.replace("#", "") || "home";
+/* =========================
+   LIGHTBOX / MÍDIA AMPLIADA
+========================= */
+
+const lightbox = document.getElementById(
+  "image-lightbox"
+);
+
+const lightboxImage = document.querySelector(
+  ".image-lightbox-image"
+);
+
+const lightboxVideo = document.querySelector(
+  ".image-lightbox-video"
+);
+
+const lightboxContent = document.querySelector(
+  ".image-lightbox-content"
+);
+
+const lightboxCloseButton = document.querySelector(
+  "[data-lightbox-close]"
+);
+
+const boundLightboxTriggers = new WeakSet();
+
+let lastFocusedElement = null;
+
+function getMediaType(trigger, mediaSrc) {
+  const declaredType =
+    trigger.dataset.mediaType;
+
+  if (
+    declaredType === "video" ||
+    declaredType === "image"
+  ) {
+    return declaredType;
+  }
+
+  return /\.(mp4|webm|ogg)(\?.*)?$/i.test(
+    mediaSrc
+  )
+    ? "video"
+    : "image";
+}
+
+function resetLightboxMedia() {
+  if (lightboxImage) {
+    lightboxImage.classList.remove(
+      "is-active-media"
+    );
+
+    lightboxImage.removeAttribute("src");
+    lightboxImage.alt = "";
+  }
+
+  if (lightboxVideo) {
+    lightboxVideo.pause();
+
+    lightboxVideo.classList.remove(
+      "is-active-media"
+    );
+
+    lightboxVideo.removeAttribute("src");
+
+    lightboxVideo.removeAttribute(
+      "aria-label"
+    );
+
+    lightboxVideo.load();
+  }
+}
+
+function openLightbox(trigger) {
+  if (!lightbox) return;
+
+  const previewImage =
+    trigger.querySelector("img");
+
+  const previewVideo =
+    trigger.querySelector("video");
+
+  const mediaSrc =
+    trigger.getAttribute("href") ||
+    previewImage?.currentSrc ||
+    previewImage?.src ||
+    previewVideo?.currentSrc ||
+    previewVideo?.querySelector("source")?.src;
+
+  if (!mediaSrc) return;
+
+  const mediaType = getMediaType(
+    trigger,
+    mediaSrc
+  );
+
+  const mediaLabel =
+    previewImage?.alt ||
+    previewVideo?.getAttribute("aria-label") ||
+    trigger.getAttribute("aria-label") ||
+    "Mídia ampliada";
+
+  lastFocusedElement =
+    document.activeElement;
+
+  resetLightboxMedia();
+
+  if (
+    mediaType === "video" &&
+    lightboxVideo
+  ) {
+    lightboxVideo.src = mediaSrc;
+
+    lightboxVideo.setAttribute(
+      "aria-label",
+      mediaLabel
+    );
+
+    lightboxVideo.classList.add(
+      "is-active-media"
+    );
+
+    lightboxVideo.load();
+
+    const playPromise =
+      lightboxVideo.play();
+
+    if (playPromise instanceof Promise) {
+      playPromise.catch(() => {
+        /*
+          O navegador pode bloquear o autoplay.
+          Os controles continuam disponíveis.
+        */
+      });
+    }
+  } else if (lightboxImage) {
+    lightboxImage.src = mediaSrc;
+    lightboxImage.alt = mediaLabel;
+
+    lightboxImage.classList.add(
+      "is-active-media"
+    );
+  }
+
+  lightbox.classList.add("is-open");
+
+  lightbox.setAttribute(
+    "aria-hidden",
+    "false"
+  );
+
+  document.body.classList.add(
+    "lightbox-open"
+  );
+
+  lightboxCloseButton?.focus();
+}
+
+function closeLightbox() {
+  if (
+    !lightbox ||
+    !lightbox.classList.contains("is-open")
+  ) {
+    return;
+  }
+
+  lightbox.classList.remove("is-open");
+
+  lightbox.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  document.body.classList.remove(
+    "lightbox-open"
+  );
+
+  resetLightboxMedia();
+
+  if (
+    lastFocusedElement instanceof HTMLElement
+  ) {
+    lastFocusedElement.focus();
+  }
+
+  lastFocusedElement = null;
+}
+
+function bindLightboxTrigger(trigger) {
+  if (
+    !trigger ||
+    boundLightboxTriggers.has(trigger)
+  ) {
+    return;
+  }
+
+  trigger.setAttribute(
+    "aria-haspopup",
+    "dialog"
+  );
+
+  trigger.addEventListener(
+    "click",
+    (event) => {
+      event.preventDefault();
+      openLightbox(trigger);
+    }
+  );
+
+  boundLightboxTriggers.add(trigger);
+}
+
+document
+  .querySelectorAll("[data-lightbox]")
+  .forEach(bindLightboxTrigger);
+
+/* =========================
+   SKETCHBOOK / PAGINAÇÃO
+========================= */
+
+const sketchbookImages = Array.from(
+  { length: 23 },
+  (_, index) =>
+    `assets/images/sketchbook/sb${index + 1}.jpg`
+);
+
+const sketchbookItemsPerPage = 8;
+
+const sketchbookTotalPages = Math.ceil(
+  sketchbookImages.length /
+    sketchbookItemsPerPage
+);
+
+let sketchbookCurrentPage = 1;
+let sketchbookIsChangingPage = false;
+
+const sketchbookSection =
+  document.getElementById("sketchbook");
+
+const sketchbookGrid =
+  document.getElementById(
+    "sketchbook-grid"
+  );
+
+const sketchbookPreviousButton =
+  document.getElementById(
+    "sketchbook-previous"
+  );
+
+const sketchbookNextButton =
+  document.getElementById(
+    "sketchbook-next"
+  );
+
+const sketchbookCurrentPageLabel =
+  document.getElementById(
+    "sketchbook-current-page"
+  );
+
+const sketchbookTotalPagesLabel =
+  document.getElementById(
+    "sketchbook-total-pages"
+  );
+
+function createSketchbookItem(
+  imageSrc,
+  imageNumber
+) {
+  const figure =
+    document.createElement("figure");
+
+  const link =
+    document.createElement("a");
+
+  const image =
+    document.createElement("img");
+
+  figure.className = "gallery-item";
+
+  link.className =
+    "gallery-lightbox-link";
+
+  link.href = imageSrc;
+  link.dataset.lightbox = "";
+  link.dataset.mediaType = "image";
+
+  link.setAttribute(
+    "aria-label",
+    `Ampliar Sketchbook ${imageNumber}`
+  );
+
+  image.className = "gallery-media";
+  image.src = imageSrc;
+  image.alt = `Sketchbook ${imageNumber}`;
+  image.loading = "lazy";
+  image.decoding = "async";
+
+  link.appendChild(image);
+  figure.appendChild(link);
+
+  bindLightboxTrigger(link);
+
+  return figure;
+}
+
+function updateSketchbookPagination() {
+  if (sketchbookCurrentPageLabel) {
+    sketchbookCurrentPageLabel.textContent =
+      String(sketchbookCurrentPage);
+  }
+
+  if (sketchbookTotalPagesLabel) {
+    sketchbookTotalPagesLabel.textContent =
+      String(sketchbookTotalPages);
+  }
+
+  if (sketchbookPreviousButton) {
+    sketchbookPreviousButton.disabled =
+      sketchbookCurrentPage === 1;
+  }
+
+  if (sketchbookNextButton) {
+    sketchbookNextButton.disabled =
+      sketchbookCurrentPage ===
+      sketchbookTotalPages;
+  }
+}
+
+function renderSketchbookPage(pageNumber) {
+  if (!sketchbookGrid) return;
+
+  sketchbookCurrentPage = Math.min(
+    Math.max(pageNumber, 1),
+    sketchbookTotalPages
+  );
+
+  const firstImageIndex =
+    (sketchbookCurrentPage - 1) *
+    sketchbookItemsPerPage;
+
+  const currentPageImages =
+    sketchbookImages.slice(
+      firstImageIndex,
+      firstImageIndex +
+        sketchbookItemsPerPage
+    );
+
+  const fragment =
+    document.createDocumentFragment();
+
+  currentPageImages.forEach(
+    (imageSrc, index) => {
+      const imageNumber =
+        firstImageIndex + index + 1;
+
+      fragment.appendChild(
+        createSketchbookItem(
+          imageSrc,
+          imageNumber
+        )
+      );
+    }
+  );
+
+  sketchbookGrid.replaceChildren(
+    fragment
+  );
+
+  updateSketchbookPagination();
+}
+
+function changeSketchbookPage(nextPage) {
+  if (
+    !sketchbookGrid ||
+    sketchbookIsChangingPage ||
+    nextPage < 1 ||
+    nextPage > sketchbookTotalPages ||
+    nextPage === sketchbookCurrentPage
+  ) {
+    return;
+  }
+
+  sketchbookIsChangingPage = true;
+
+  sketchbookGrid.classList.add(
+    "is-changing"
+  );
+
+  window.setTimeout(() => {
+    renderSketchbookPage(nextPage);
+
+    sketchbookGrid.classList.remove(
+      "is-changing"
+    );
+
+    sketchbookIsChangingPage = false;
+
+    sketchbookSection?.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, 150);
+}
+
+sketchbookPreviousButton?.addEventListener(
+  "click",
+  () => {
+    changeSketchbookPage(
+      sketchbookCurrentPage - 1
+    );
+  }
+);
+
+sketchbookNextButton?.addEventListener(
+  "click",
+  () => {
+    changeSketchbookPage(
+      sketchbookCurrentPage + 1
+    );
+  }
+);
+
+renderSketchbookPage(1);
+
+/* =========================
+   FECHAMENTO DO LIGHTBOX
+========================= */
+
+lightboxCloseButton?.addEventListener(
+  "click",
+  closeLightbox
+);
+
+lightbox?.addEventListener(
+  "click",
+  (event) => {
+    const clickedBackdrop =
+      event.target === lightbox ||
+      event.target === lightboxContent;
+
+    if (clickedBackdrop) {
+      closeLightbox();
+    }
+  }
+);
+
+window.addEventListener(
+  "keydown",
+  (event) => {
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+  }
+);
+
+/* =========================
+   ESTADO INICIAL
+========================= */
+
+const initialSection =
+  window.location.hash.replace("#", "") ||
+  "home";
+
 showSection(initialSection, false);
