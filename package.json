@@ -1,0 +1,5 @@
+{
+  "name": "tuca-portfolio", "private": true, "type": "module",
+  "scripts": {"build": "node scripts/build.mjs", "test": "node --test tests/content.test.mjs", "serve": "python3 -m http.server 8080 --directory dist"},
+  "engines": {"node": ">=22.12.0"}
+}
